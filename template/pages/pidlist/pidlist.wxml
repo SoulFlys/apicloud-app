@@ -1,0 +1,41 @@
+<view class="container">
+    <view class="pidcell">
+        <view class="pidcell-title pidactive"><text>mm_119807274_29734524_110644890</text></view>
+        <view class="pidcell-con">
+            <view class="pidcell-con-li">
+                <text class="pidcell-con-left">渠道名称：</text>
+                <text class="pidcell-con-right">微信专用渠道</text>
+            </view>
+            <view class="pidcell-con-li">
+                <text class="pidcell-con-left">渠道分类：</text>
+                <text class="pidcell-con-right">微信</text>
+            </view>
+        </view>
+        <view class="pidcell-btns">
+            <text>删除</text>
+            <text>编辑</text>
+            <text>设为默认</text>
+        </view>
+    </view>
+    <view class="pidcell">
+        <view class="pidcell-title"><text>mm_119807274_29734524_110644890</text></view>
+        <view class="pidcell-con">
+            <view class="pidcell-con-li">
+                <text class="pidcell-con-left">渠道名称：</text>
+                <text class="pidcell-con-right">母婴专用渠道</text>
+            </view>
+            <view class="pidcell-con-li">
+                <text class="pidcell-con-left">渠道分类：</text>
+                <text class="pidcell-con-right">QQ</text>
+            </view>
+        </view>
+        <view class="pidcell-btns">
+            <text>删除</text>
+            <text>编辑</text>
+            <text>设为默认</text>
+        </view>
+    </view>
+
+
+    <view class="pidtips"><text>使用淘客助手手机APP分享商品时，系统将使用您设置的默认PID进行转链</text></view>
+</view>

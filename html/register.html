@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<body class="register">
+    <header class="header">
+        <div class="nav active"><div class="left" tapmode onclick="fnGoBack()"></div><div class="center">立即注册</div></div>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header');
+        var headerH = $api.fixStatusBar(header);
+    };
+
+    function fnGoBack() {
+        api.closeWin();
+    }
+</script>
+</html>

@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/sharelist/sharelist",
+        "pages/punsterlist/punsterlist",
+        "pages/myinfo/myinfo",
+        "pages/pidlist/pidlist",
+
+        "pages/alertview/alertview",
+        "pages/confirmview/confirmview",
+    ],
+    "window": {
+        "navigationBarTitleText": "淘客助手APP",
+        "navigationBarBackgroundColor": "rgba(0,0,0,0.0)",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "rgba(0,0,0,0)",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 50
+    },
+    "tabBar": {
+        "color": "#4b4b4b",
+        "selectedColor": "#ff550c",
+        "backgroundColor": "#fff",
+        "borderStyle": "#cbcbcb",
+        "list": [{
+            "pagePath": "pages/sharelist/sharelist",
+            "text": "分享赚钱",
+            "iconPath": "",
+            "selectedIconPath": ""
+        }, {
+            "pagePath": "pages/punsterlist/punsterlist",
+            "text": "神段子",
+            "iconPath": "",
+            "selectedIconPath": ""
+        }, {
+            "pagePath": "pages/myinfo/myinfo",
+            "text": "我的",
+            "iconPath": "",
+            "selectedIconPath": ""
+        }],
+        "position": "bottom"
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
+}

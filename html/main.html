@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>main</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+</head>
+<body>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        fnOpenTabBar();
+    };
+
+    function fnOpenTabBar() {
+        var NVTabBar = api.require('NVTabBar');
+        NVTabBar.open({
+            styles: {
+                bg: '#fff',
+                h: 48,
+                dividingLine: {
+                    width: 1,
+                    color: '#cbcbcb'
+                },
+                badge: {
+                    bgColor: '#fc5444',
+                    numColor: '#fff',
+                    size: 6.0,
+                    centerX: 30,
+                    centerY: 0
+                }
+            },
+            items: [{
+                w: api.winWidth / 3.0,
+                icon: {
+                    normal: 'widget://image/menu_default_money.png',
+                    highlight: 'widget://image/menu_seleted_money.png',
+                    selected: 'widget://image/menu_seleted_money.png'
+                },
+                title: {
+                    text: '分享赚钱',
+                    size: 10.0,
+                    normal: '#414141',
+                    selected: '#fc5444',
+                    marginB: 3.0
+                }
+            }, {
+                w: api.winWidth / 3.0,
+                icon: {
+                    normal: 'widget://image/menu_default_joke.png',
+                    highlight: 'widget://image/menu_seleted_joke.png',
+                    selected: 'widget://image/menu_seleted_joke.png'
+                },
+                title: {
+                    text: '神段子',
+                    size: 10.0,
+                    normal: '#414141',
+                    selected: '#fc5444',
+                    marginB: 3.0
+                }
+            }, {
+                w: api.winWidth / 3.0,
+                icon: {
+                    normal: 'widget://image/menu_default_mine.png',
+                    highlight: 'widget://image/menu_seleted_mine.png',
+                    selected: 'widget://image/menu_seleted_mine.png'
+                },
+                title: {
+                    text: '我的',
+                    size: 10.0,
+                    normal: '#414141',
+                    selected: '#fc5444',
+                    marginB: 3.0
+                }
+            }],
+            selectedIndex: 0
+        }, function(ret, err) {
+            var index = ret.index ? ret.index : 0;
+            fnChange(index);
+        });
+    }
+
+    function fnChange(index) {
+        var frames = ['home', 'punster', 'myinfo'];
+        for (var i = 0; i < frames.length; i++) {
+            if (index == i) {
+                api.openFrame({
+                    name: frames[i],
+                    url: './' + frames[i] + '.html',
+                    bgColor: '#f8f8f8',
+                    vScrollBarEnabled: false,
+                    hScrollBarEnabled: false,
+                    reload: true,
+                    customRefreshHeader: frames[i],
+                    rect: {
+                        marginTop: 0,
+                        marginBottom: 49,
+                        w: 'auto'
+                    }
+                });
+            } else {
+                api.setFrameAttr({
+                    name: frames[i],
+                    hidden: true
+                });
+            }
+        }
+    }
+</script>
+</html>

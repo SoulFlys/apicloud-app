@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="my nav active">
+            <div class="info">
+                <img src="../res/pic.jpg" alt="" />
+                <p>15623019868</p>
+            </div>
+        </div>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        wxui.fixStatusBarAndTabBar();
+        //1.获取用户数据
+
+        wxui.list('myinfo', { dataSource: [1,2] }, function(ret, err){
+            if(!err && ret){
+                if(ret.type === 'switchChange'){
+                    changePush(ret.status);
+                }else if (ret.type === 'cellClick') {
+                    switch (ret.name) {
+                        case 'channel':
+                            fnOpenChannel();
+                            break;
+                        case 'auth':
+                            fnOpenAuth();
+                            break;
+                        case 'cache':
+                            clearCache();
+                            break;
+                        case 'about':
+                            fnOpenAbout();
+                            break;
+                    }
+                }
+            }else{
+                console.log('myinfo: Error', JSON.stringify(err));
+            }
+        });
+
+
+
+    };
+
+    //打开推广渠道
+    function fnOpenChannel() {
+        api.openWin({
+            name: 'pidlist',
+            url: './pidlist.html'
+        });
+    }
+
+    //打开授权管理
+    function fnOpenAuth() {}
+
+    //清除缓存
+    function clearCache() {
+        wxui.confirm({
+            title: {content: '清除缓存'},
+            msg: {content: '淘客助手提示您：是否清楚缓存？'}
+        }, function(ret, err){
+            if(!err && ret){
+                wxui.closeView('confirm');
+                if(ret.status){
+                    api.clearCache(function() {
+                        $api.toast('清除成功！', 800);
+                    });
+                }
+            }
+        });
+    }
+
+    //关于我们
+    function fnOpenAbout() {}
+
+    //推送设置
+    function changePush(status) {
+        console.log(!!status ? '开' : '关');
+    }
+</script>
+
+</html>

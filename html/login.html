@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<body class="login">
+    <header class="login-header">
+        <div class="login-title">
+            <img src="../image/image_slogn.png" alt="">
+        </div>
+    </header>
+    <div class="login-bg">
+        <img src="../image/image_bg.png" alt="">
+    </div>
+    <div class="login-box">
+        <div class="login-form">
+            <form>
+                <div class="login-item username"><input type="text" placeholder="用户账号" id="username"></div>
+        		<div class="login-item password"><input type="password" placeholder="登陆密码" id="password"></div>
+                <div class="login-button"><div class="submit" tapmode onclick="fnLogin()">立 即 登 录</div></div>
+            </form>
+            <div class="login-orther">
+                <span tapmode onclick="fnRegister()">立即注册</span>
+                <span tapmode onclick="fnForgetPassword()">忘记密码</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header');
+        var headerH = $api.fixStatusBar(header);
+    };
+
+    function fnLogin() {
+        var username = $api.byId('username').value,
+            password = $api.byId('password').value;
+        console.log('username', username);
+        console.log('password', password);
+        // $api.post('http://www.taokezhushou.com/login',{mobile:username,password:password},function(result){
+        //     console.log('result'+result)
+        // })
+    }
+
+    function fnRegister() {
+        api.openWin({
+            name: 'register',
+            url: './register.html'
+        });
+    }
+
+    function fnForgetPassword() {
+
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<view class="container">
+    <scroll-view class="scroll-view" scroll-y="true" bindscrolltolower="pullUp">
+        <block wx:for="{{ dataSource }}">
+            <view class="list-con" data-index="{{index}}" bindtap="cellTouched" >
+                <view class="list-cell">
+                    <view class="cell-user">
+                        <image class="cell-pic" src="{{item.imgSrc}}"></image>
+                        <view class="cell-userinfo">
+                            <text class="cell-name">放单员昵称2</text>
+                            <text class="cell-date">02-01 12:00</text>
+                        </view>
+                    </view>
+                    <view class="cell-text">
+                        <text class="cell-intro">
+                            赞我吧
+美瞳免费送
+………………
+前10行，第4列赞我的，每人一份免费验货名额，共10份。
+月销量5万的美瞳，质量很不错的
+                        </text>
+                    </view>
+                    <view class="cell-imgs">
+                        <view class="cell-imgbox cell-imgbox-3">
+                            <image class="cell-img-3" src="{{item.imgSrc}}"></image>
+                            <image class="cell-img-3" src="{{item.imgSrc}}"></image>
+                            <image class="cell-img-3" src="{{item.imgSrc}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

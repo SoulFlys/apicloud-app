@@ -1,0 +1,70 @@
+<view class="container">
+    <scroll-view class="scroll-view" scroll-y="true" bindscrolltolower="pullUp">
+        <block wx:for="{{ dataSource }}">
+            <view class="list-con" data-index="{{index}}" bindtap="cellTouched" >
+                <view class="list-cell">
+                    <view class="cell-user">
+                        <image class="cell-pic" src="{{item.imgSrc}}"></image>
+                        <view class="cell-userinfo">
+                            <text class="cell-name">放单员昵称</text>
+                            <text class="cell-date">02-01 12:00</text>
+                        </view>
+                    </view>
+                    <view class="cell-text">
+                        <text class="cell-intro">
+                            赞我吧
+美瞳免费送
+………………
+前10行，第4列赞我的，每人一份免费验货名额，共10份。
+月销量5万的美瞳，质量很不错的
+                        </text>
+                    </view>
+                    <view class="cell-imgs">
+                        <view class="cell-imgbox cell-imgbox-4">
+                            <image class="cell-img-4" src="{{item.imgSrc}}"></image>
+                            <image class="cell-img-4" src="{{item.imgSrc}}"></image>
+                            <image class="cell-img-4" src="{{item.imgSrc}}"></image>
+                            <image class="cell-img-4" src="{{item.imgSrc}}"></image>
+                        </view>
+                    </view>
+                    <view class="cell-prices">
+                        <view class="cell-prices-title">
+                            <text class="cell-prices-t">塑料收纳箱有盖储物【三件套】</text>
+                            <view class="cell-prices-people">
+                                <image class="cell-people-icon" src="../../../image/icon_sale_num.png"></image>
+                                <text class="cell-num">556</text>人已购
+                            </view>
+                        </view>
+                        <view class="cell-price">
+                            <view class="cell-price-item">
+                                <text class="cell-price-1">¥34.9</text>
+                                <text class="cell-price-2">劵后</text>
+                            </view>
+                            <view class="cell-price-item cell-price-item-2">
+                                <text class="cell-price-3">30.5%</text>
+                                <text class="cell-price-2">佣金</text>
+                            </view>
+                            <view class="cell-price-item">
+                                <image class="cell-quanleft" src="../../../image/icon_quan_left.png"></image>
+                                <text class="cell-price-4">100元</text>
+                                <image class="cell-quanright" src="../../../image/icon_quan_right.png"></image>
+                            </view>
+                            <view class="cell-price-item">
+                                <text class="cell-price-5">领劵购买</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="cell-btns">
+                        <view class="cell-btn">
+                            <text class="cell-share">分享图文</text>
+                            <text class="cell-cli">复制淘口令</text>
+                        </view>
+                        <view>
+                            <text class="cell-tip">先分享图文到朋友圈，再复制淘口令发评论</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>

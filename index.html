@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>淘客助手APP</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+</head>
+<body>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        //1.获取用户状态
+        //    登陆过且状态未过期的用户  => fnOpenMain() 直接进入首页
+        //    未登录的用户  => fnOpenLogin() 进入登陆页面
+        api.setStatusBarStyle({style: 'light'});
+        fnOpenMain();
+        // fnOpenLogin();
+    };
+
+    function fnOpenMain() {
+        api.openWin({
+            name: 'main',
+            url: './html/main.html',
+            slidBackEnabled: false
+        });
+    }
+
+    function fnOpenLogin() {
+        api.openWin({
+            name: 'login',
+            url: './html/login.html',
+            slidBackEnabled: false,
+            softInputMode: 'pan',
+            softInputBarEnabled: false
+        });
+    }
+</script>
+
+</html>

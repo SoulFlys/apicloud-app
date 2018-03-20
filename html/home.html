@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="home nav active"><div class="center">分享赚钱</div><div class="right">帮助</div></div>
+    </header>
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript">
+    var count = 15, index = 0, dataSource = [], initStatus = false;
+    apiready = function() {
+        wxui.fixStatusBarAndTabBar();
+        //1.获取数据
+        //2.渲染小程序页面
+        getListData();
+    }
+
+    function getListData() {
+        var dataArr = createTestData(index, count);
+        if (dataArr && dataArr.length) {
+            dataSource = dataSource.concat(dataArr);
+            index = dataSource.length;
+            if (!initStatus) {
+                wxui.list('sharelist', { dataSource: dataSource }, function(ret, err) {
+                    if (!err && ret) {
+                        initStatus = true;
+                        if ('pullDown' == ret.type) { // 下拉刷新
+                            fnListRefresh();
+                        } else if ('pullUp' == ret.type) { // 上拉加载
+                            fnListAddMore();
+                        } else if ('cellClick' == ret.type) { // 单元格点击事件
+                            wxui.alert({
+                                title: 'APICloud温馨提示',
+                                msg: '列表单元' + ret.index + '被点击了'
+                            });
+                        }
+                    } else {
+                        console.log('UITemplate.openView => err:' + JSON.stringify(err));
+                    }
+                });
+            } else {
+                wxui.setData({
+                    name: 'sharelist',
+                    data: {
+                        dataSource: dataSource
+                    }
+                });
+            }
+        } else {
+            //无数据处理，根据是刷新还是加载进行响应处理
+            console.log('请求无数据')
+        }
+    }
+
+    // 刷新列表数据 （下拉刷新）
+    function fnListRefresh() {
+        dataSource = [];
+        index = 0;
+        getListData();
+    }
+
+    // 列表加载新数据（上拉加载）
+    function fnListAddMore() {
+        getListData();
+    }
+
+    //模拟测试数据
+    function createTestData(pIndex, pCount) {
+        var dataArr = [];
+        for (var i = pIndex; i < pIndex + pCount; i++) {
+            var num = i % 4 + 1;
+            var tObj = {
+                title: 'APICloud开发者大会，各路菁英齐聚，共讨AI时代的技术革新',
+                type: '技术前沿',
+                date: '2018-01-05',
+                imgSrc: '../../../res/list_icon_' + num + '@3x.png',
+                index: i
+            };
+            dataArr.push(tObj);
+        }
+        return dataArr;
+    }
+</script>
+
+</html>
